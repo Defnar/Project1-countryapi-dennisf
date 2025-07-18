@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Color Theme Switcher</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Where in the world?</h1>
+      <button id="dark-mode-toggle">Dark Mode</button>
+    </header>
+    <section id="main-page">
+      <input type="text" id="search-bar" name="search-bar" />
+
+      <label for="filter">Filter by Region</label>
+      <select name="filter" id="filter">
+        <option>Africa</option>
+        <option>America</option>
+        <option>Asia</option>
+        <option>Europe</option>
+        <option>Oceania</option>
+      </select>
+      <div id="country-container">
+        <div>
+          <img alt="country flag" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"/>
+          <h2 class="country-name">USA</h2>
+          <p>Population: <span class="population">2,000,000</span></p>
+          <p>Region: <span class="region">Americas</span></p>
+          <p>Capital: <span class="capital">Washington, DC</span></p>
+        </div>
+        <div class="country-holder">
+          <img alt="country flag" />
+          <h2 class="country-name">test</h2>
+          <p>Population: <span class="population"></span></p>
+          <p>Region: <span class="region"></span></p>
+          <p>Capital: <span class="capital"></span></p>
+        </div>
+      </div>
+    </section>
+    <section style="display: none" id="info-page"></section>
+    <div id="template">
+      <template id="country-holder-template">
+        <div class="country-holder">
+          <img alt="country flag" />
+          <h2 class="country-name"></h2>
+          <p>Population: <span class="population"></span></p>
+          <p>Region: <span class="region"></span></p>
+          <p>Capital: <span class="capital"></span></p>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>
