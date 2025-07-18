@@ -23,7 +23,7 @@
   <body>
     <header>
       <h1>Where in the world?</h1>
-      <button id="dark-mode-toggle" name="dark-mode-toggle">
+      <button type="button" id="dark-mode-toggle" name="dark-mode-toggle" aria-label="toggle dark mode">
         <ion-icon name="moon"></ion-icon>Dark Mode
       </button>
     </header>
@@ -37,10 +37,12 @@
             id="search-bar"
             name="search-bar"
             placeholder="Search for a country..."
+            aria-label="Search for a country"
           />
         </div>
-        <select name="filter" id="filter">
+        <select name="filter" id="filter" aria-label="Filter by region">
           <option disabled selected hidden>Filter by Region</option>
+          <option value="All">All</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
@@ -51,8 +53,8 @@
       <div id="country-container"></div>
     </section>
     <!--section for information, hidden on default.  Clone and fill out template to append here-->
-    <section id="info-page">
-      <button id="back-button">
+    <section id="info-page" aria-live="polite">
+      <button type="button" id="back-button" aria-label="back button">
         <ion-icon name="arrow-back-outline"></ion-icon>Back
       </button>
       <div id="info-page-container">
