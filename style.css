@@ -1,9 +1,9 @@
 :root {
+  font-family: "Nunito Sans", sans-serif;
   --text-color: hsl(200, 15%, 8%);
   --background-color: hsl(0, 0%, 98%);
   --element-color: hsl(0, 0%, 100%);
   --input-color: hsl(0, 0%, 52%);
-  font-family: "Nunito Sans", sans-serif;
   --font-light: 300;
   --font-medium: 600;
   --font-heavy: 800;
@@ -56,16 +56,21 @@ header {
   justify-content: space-between;
   align-items: center;
   border: none;
+  gap: 30px;
   padding: var(--element-padding);
 }
 
 #search-bar-div {
   position: relative;
-  width: 300px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 #search-bar {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
   padding-left: 40px;
 }
 
@@ -92,20 +97,14 @@ header {
   width: 20%;
 }
 
-@media (max-width: 700px) {
-  #search-bar {
-    width: 300px;
-  }
-}
-
-@media (max-width: 475px) {
+@media (max-width: 575px) {
   #search-filter {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
   }
-
-  #search-bar {
-    width: 300px;
+  #search-bar-div{
+width: 100%;
+max-width: 100%;
   }
 }
