@@ -57,6 +57,8 @@ header {
   font-size: 16px;
 }
 
+
+/*main page*/
 #search-filter {
   display: flex;
   justify-content: space-between;
@@ -119,7 +121,7 @@ header {
     padding-bottom: 50px;
 }
 
-.country-info-container {
+.country-card-info-container {
     padding: 5px 10px;
 }
 .country-flag {
@@ -136,16 +138,22 @@ header {
 }
 
 
-.country-info-container-inner{
+.country-card-info-container-inner{
     line-height: .5;
 }
-.country-info-class{
+.category{
     font-weight: var(--font-medium);
 }
 
 .country-info {
     font-weight: var(--font-light);
 }
+
+
+
+/*info section*/
+
+
 
 
 
