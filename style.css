@@ -7,6 +7,7 @@
   --font-light: 300;
   --font-medium: 600;
   --font-heavy: 800;
+  --element-padding: 21px 3.65vw;
 }
 
 html[data-theme="dark"] {
@@ -39,17 +40,72 @@ header {
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
   margin: 0, 0, 10px, 0;
   background-color: var(--element-color);
-  padding: 21px 70px;
-  margin-bottom: 20px;
+  padding: var(--element-padding);
+  margin-bottom: 10px;
 }
 
 #dark-mode-toggle {
-    border: none;
-    background-color:var(--element-color);
-    color: var(--text-color);
-    font-size: 16px;
+  border: none;
+  background-color: var(--element-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+#search-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  padding: var(--element-padding);
+}
+
+#search-bar-div {
+  position: relative;
+  width: 300px;
+}
+
+#search-bar {
+  width: 500px;
+  padding-left: 40px;
+}
+
+#search-icon {
+  position: absolute;
+  align-self: center;
+  left: 20px;
+}
+
+#search-bar,
+#filter {
+  border: none;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  height: 50px;
+}
+
+#filter {
+    width: 200px;
+    padding: 0px 20px;
 }
 
 .country-flag {
   width: 20%;
+}
+
+@media (max-width: 700px) {
+  #search-bar {
+    width: 300px;
+  }
+}
+
+@media (max-width: 475px) {
+  #search-filter {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  #search-bar {
+    width: 300px;
+  }
 }
