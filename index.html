@@ -23,12 +23,17 @@
   <body>
     <header>
       <h1>Where in the world?</h1>
-      <button type="button" id="dark-mode-toggle" name="dark-mode-toggle" aria-label="toggle dark mode">
+      <button
+        type="button"
+        id="dark-mode-toggle"
+        name="dark-mode-toggle"
+        aria-label="toggle dark mode"
+      >
         <ion-icon name="moon"></ion-icon>Dark Mode
       </button>
     </header>
     <!--Main section, hidden for information card-->
-    <section id="main-page" style="display: none">
+    <section id="main-page">
       <div id="search-filter">
         <div id="search-bar-div">
           <ion-icon name="search-outline" id="search-icon"></ion-icon>
@@ -53,73 +58,12 @@
       <div id="country-container"></div>
     </section>
     <!--section for information, hidden on default.  Clone and fill out template to append here-->
-    <section id="info-page" aria-live="polite">
+    <section id="info-page" aria-live="polite" style="display: none">
       <button type="button" id="back-button" aria-label="back button">
         <ion-icon name="arrow-back-outline"></ion-icon>Back
       </button>
       <div id="info-page-container">
-        <div class="full-info-container">
-          <img
-            class="info-country-flag"
-            src="https://flagcdn.com/w320/de.png"
-            alt="Flag of Germany"
-          />
-          <div class="info-container-inner">
-            <div class="info-container-inner-inner">
-              <div class="info-container-1">
-                <h2 class="info-country-name">Germany</h2>
-                <p>
-                  <span class="category">Native Name: </span
-                  ><span class="native-name country-info">Deutschland</span>
-                </p>
-                <p>
-                  <span class="category">Population: </span
-                  ><span class="population country-info">83,240,000</span>
-                </p>
-                <p>
-                  <span class="category">Region: </span
-                  ><span class="region country-info">Europe</span>
-                </p>
-                <p>
-                  <span class="category">Sub Region: </span
-                  ><span class="sub-region country-info">Western Europe</span>
-                </p>
-                <p>
-                  <span class="category">Capital: </span
-                  ><span class="capital country-info">Berlin</span>
-                </p>
-              </div>
-              <div class="info-container-2">
-                <p>
-                  <span class="category">Top Level Domain: </span
-                  ><span class="top-level-domain country-info">.de</span>
-                </p>
-                <p>
-                  <span class="category">Currencies: </span
-                  ><span class="currencies country-info">Euro (EUR)</span>
-                </p>
-                <p>
-                  <span class="category">Languages: </span
-                  ><span class="languages country-info">German</span>
-                </p>
-              </div>
-            </div>
-            <div class="border-country-container">
-              <h3>Border Countries</h3>
-              <div class="border-countries">
-                <button class="info-border-countries">Denmark</button>
-                <button class="info-border-countries">Poland</button>
-                <button class="info-border-countries">Czech Republic</button>
-                <button class="info-border-countries">Austria</button>
-                <button class="info-border-countries">Switzerland</button>
-                <button class="info-border-countries">France</button>
-                <button class="info-border-countries">Luxembourg</button>
-                <button class="info-border-countries">Belgium</button>
-                <button class="info-border-countries">Netherlands</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="full-info-container"></div>
       </div>
     </section>
     <div id="template">
@@ -149,11 +93,13 @@
       <!--template for information screen-->
       <template id="info-template">
         <div class="full-info-container">
-          <img class="info-country-flag" />
-          <div class="info-container-inner">
-            <div class="info-container-inner-inner">
+          <div class="info-flag-container">
+            <img class="info-country-flag" />
+          </div>
+          <div class="info-container-text">
+            <div class="info-container-inner">
               <div class="info-container-1">
-                <h2 class="info-country-name"></h2>
+                <h2 class="country-name"></h2>
                 <p>
                   <span class="category">Native Name: </span
                   ><span class="native-name country-info"></span>
@@ -194,7 +140,7 @@
               <h3>Border Countries</h3>
               <div class="border-countries">
                 <!--to be filled with buttons made via javascript.  
-                the idea is <button type="button" class="info-border-countries" aria-label="border country: <insert country name here>">country name</button>
+                the idea is <button type="button" class="info-border-countries" val=cc3a aria-label="border country: <insert country name here>">country name</button>
                 -->
               </div>
             </div>
