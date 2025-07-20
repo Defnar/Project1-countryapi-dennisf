@@ -1,9 +1,9 @@
 import { countryMap } from "../index.js";
+import createInformationDisplay from "./countryInformation.js";
 const infoTemplate = document.getElementById("info-template");
-function createInfoPage(cca3) {
+export default function createInfoPage(cca3) {
     const country = countryMap.get(cca3);
-    const fragment = document.createDocumentFragment();
     const info = infoTemplate.content.cloneNode(true);
-    //country flag
-    return fragment;
+    createInformationDisplay(country, info, true);
+    return info;
 }

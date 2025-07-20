@@ -1,3 +1,4 @@
+import buttonBuilder from "../utils/buttonBuilder.js";
 import listBuilder from "../utils/listBuilders.js";
 const cardTemplate = document.getElementById("country-card-template");
 export default function createInformationDisplay(country, card, informationPage = false) {
@@ -38,12 +39,18 @@ export default function createInformationDisplay(country, card, informationPage 
         //subregion
         const subRegion = card.querySelector(".subregion");
         subRegion.textContent = country.subregion || "N/A";
+        //toplevel domain:
+        let tld = card.querySelector(".top-level-domain");
+        tld.textContent = country.tld.join(", ");
         //currencies
         const currencies = card.querySelector(".currencies");
         currencies.textContent = listBuilder(country.currencies) || "N/A";
         //languages
         const languages = card.querySelector(".languages");
         languages.textContent = listBuilder(country.languages) || "N/A";
+        //buttons
+        const border = card.querySelector(".border-countries");
+        buttonBuilder(border, country);
     }
     catch (error) {
         console.error(error);

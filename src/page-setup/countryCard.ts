@@ -1,5 +1,5 @@
 import Country from "../model/Country.js";
-import createInformationDisplay from "./countryInformationBuilder.js";
+import createInformationDisplay from "./countryInformation.js";
 
 const cardTemplate = document.getElementById("country-card-template") as HTMLTemplateElement;
 

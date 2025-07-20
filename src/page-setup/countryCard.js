@@ -1,4 +1,4 @@
-import createInformationDisplay from "./countryInformationBuilder.js";
+import createInformationDisplay from "./countryInformation.js";
 const cardTemplate = document.getElementById("country-card-template");
 export default function createCard(country) {
     const card = cardTemplate.content.cloneNode(true);

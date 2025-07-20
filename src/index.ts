@@ -1,12 +1,15 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js"
-import countryDatatoMap from "./builders/countryMapBuilder.js";
-import createCard from "./builders/countryCardBuilder.js";
+import countryDatatoMap from "./page-setup/countryMap.js";
+import createCard from "./page-setup/countryCard.js";
+import Country from "./model/Country.js";
+import createInfoPage from "./page-setup/infoPage.js";
 
 const mainError = document.getElementById("main-page-error")as HTMLSpanElement;
 const countryContainer = document.getElementById("country-container") as HTMLDivElement;
 const mainPage = document.getElementById("main-page") as HTMLElement;
 const infoPage = document.getElementById("info-page") as HTMLElement;
+const infoPageContainer = document.getElementById("info-page-container") as HTMLDivElement;
 
 
 //populate country list into a map
@@ -14,7 +17,7 @@ const url = "https://restcountries.com/v3.1/independent?status=true"
 const url2 = "https://restcountries.com/v3.1/independent?status=false"
 
 //saved into a map for use on border country buttons later
-export let countryMap = new Map();
+export let countryMap: Map<string, Country> = new Map();
 
 
 //build the Map, and displays it to screen
@@ -40,8 +43,15 @@ countryContainer.addEventListener("click", (event) => {
     if (!clickTarget.closest(".country-card")) {
         return;
     }
+    
+    const card = clickTarget.closest(".country-card") as HTMLDivElement;
 
-    const card = clickTarget.closest(".country-card");
+    infoPageContainer.innerHTML = "";
 
+    const cca3 = card.dataset.cca3;
+    infoPageContainer.appendChild(createInfoPage(cca3 as string));
+
+    mainPage.style.display = "none"
+    infoPage.style.display = "";
 
 })

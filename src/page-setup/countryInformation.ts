@@ -1,4 +1,5 @@
 import Country from "../model/Country.js";
+import buttonBuilder from "../utils/buttonBuilder.js";
 import listBuilder from "../utils/listBuilders.js";
 
 const cardTemplate = document.getElementById(
@@ -55,6 +56,11 @@ export default function createInformationDisplay(
     const subRegion = card.querySelector(".subregion") as HTMLSpanElement;
     subRegion.textContent = country.subregion || "N/A"
 
+    //toplevel domain:
+    let tld = card.querySelector(".top-level-domain") as HTMLSpanElement;
+    tld.textContent = country.tld.join(", ");
+
+
     //currencies
     const currencies = card.querySelector(".currencies") as HTMLSpanElement;
     currencies.textContent = listBuilder(country.currencies) || "N/A";
@@ -64,6 +70,9 @@ export default function createInformationDisplay(
     languages.textContent = listBuilder(country.languages) || "N/A"
 
 
+    //buttons
+    const border = card.querySelector(".border-countries") as HTMLDivElement;
+    buttonBuilder(border, country);
 
 
   } catch (error) {

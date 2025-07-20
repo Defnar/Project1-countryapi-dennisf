@@ -1,11 +1,13 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js";
-import countryDatatoMap from "./builders/countryMapBuilder.js";
-import createCard from "./builders/countryCardBuilder.js";
+import countryDatatoMap from "./page-setup/countryMap.js";
+import createCard from "./page-setup/countryCard.js";
+import createInfoPage from "./page-setup/infoPage.js";
 const mainError = document.getElementById("main-page-error");
 const countryContainer = document.getElementById("country-container");
 const mainPage = document.getElementById("main-page");
 const infoPage = document.getElementById("info-page");
+const infoPageContainer = document.getElementById("info-page-container");
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
 const url2 = "https://restcountries.com/v3.1/independent?status=false";
@@ -31,5 +33,11 @@ countryContainer.addEventListener("click", (event) => {
     if (!clickTarget.closest(".country-card")) {
         return;
     }
+    console.log("creating new info panel");
     const card = clickTarget.closest(".country-card");
+    infoPageContainer.innerHTML = "";
+    const cca3 = card.dataset.cca3;
+    infoPageContainer.appendChild(createInfoPage(cca3));
+    mainPage.style.display = "none";
+    infoPage.style.display = "";
 });
