@@ -7,16 +7,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { FetchError } from "../errorHandlers/errorHandler";
+import { ApiError, FetchError } from "../errorHandlers/errorHandler.js";
 export default function getCountryList(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = yield fetch(url);
+            if (!data.ok) {
+                const error = yield data.json();
+                throw new ApiError(`${error.message}, refresh to try again.  If problem persists, please contact web administrator`);
+            }
             const result = yield data.json();
             return result;
         }
-        catch (_a) {
-            throw new FetchError("Failed to retrieve country data, please refresh to try again");
+        catch (error) {
+            if (error instanceof ApiError)
+                throw error;
+            throw new FetchError("Failed to retrieve country data, please refresh to try again.  If problem persists, please contact web administrator");
         }
     });
 }

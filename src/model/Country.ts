@@ -1,56 +1,65 @@
 interface Currencies {
-  code: string;
-  name: string;
-  symbol: string;
+  [code: string]: {
+    name: string;
+    symbol: string;
+  };
 }
 
-interface Language {
-  iso639_1: string;
-  iso639_2: string;
-  name: string;
-  nativeName: string;
+interface NativeName {
+    official: string;
+    common: string;
 }
 
+interface Name {
+  common: string;
+  nativeName: {[code: string]: NativeName}
+}
 
+interface Flag {
+  png: string;
+  svg: string;
+  alt: string;
+}
+
+interface Languages {
+  [code: string]: string;
+}
 export default class Country {
-  name: string;
-  nativeName: string;
+  name: Name;
   capital: string;
   region: string;
   subregion: string;
   population: number;
   borders: string[];
   currencies: Currencies;
-  language: Language;
-  flag: string;
-  alpha3Code: string;
-  topLevelDomain: string[];
+  languages: Languages;
+  flags: Flag;
+  cca3: string;
+  tld: string[];
 
   constructor(
-    name: string,
-    nativeName: string,
+    name: Name,
     capital: string,
     region: string,
     subregion: string,
     population: number,
     borders: string[],
     currencies: Currencies,
-    language: Language,
-    flag: string,
-    alpha3Code: string,
-    topLevelDomain: string[]
+    languages: Languages,
+    flags: Flag,
+    cca3: string,
+    tld: string[]
   ) {
     this.name = name;
-    this.nativeName = nativeName;
     this.capital = capital;
     this.region = region;
     this.subregion = subregion;
     this.population = population;
     this.borders = borders;
     this.currencies = currencies;
-    this.language = language;
-    this.flag = flag;
-    this.alpha3Code = alpha3Code;
-    this.topLevelDomain = topLevelDomain;
+    this.languages = languages;
+    this.flags = flags;
+    this.cca3 = cca3;
+    this.tld = tld;
   }
 }

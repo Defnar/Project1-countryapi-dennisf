@@ -1,13 +1,19 @@
-import { FetchError } from "../errorHandlers/errorHandler";
-import Country from "../model/Country";
+import { ApiError, FetchError } from "../errorHandlers/errorHandler.js";
+import Country from "../model/Country.js";
 
 export default async function getCountryList(url: string): Promise<Country[]> {
     try{
-    const data = await fetch(url);
+    const data = await fetch(url)
+    if (!data.ok) {
+
+        const error = await data.json();
+        throw new ApiError(`${error.message}, refresh to try again.  If problem persists, please contact web administrator`);
+    }
     const result = await data.json();
     return result;
     }
-    catch{
-        throw new FetchError("Failed to retrieve country data, please refresh to try again");
+    catch(error: any) {
+        if (error instanceof ApiError) throw error;
+        throw new FetchError("Failed to retrieve country data, please refresh to try again.  If problem persists, please contact web administrator");
     }
 }

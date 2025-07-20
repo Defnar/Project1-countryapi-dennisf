@@ -1,16 +1,15 @@
 export default class Country {
-    constructor(name, nativeName, capital, region, subregion, population, borders, currencies, language, flag, alpha3Code, topLevelDomain) {
+    constructor(name, capital, region, subregion, population, borders, currencies, languages, flags, cca3, tld) {
         this.name = name;
-        this.nativeName = nativeName;
         this.capital = capital;
         this.region = region;
         this.subregion = subregion;
         this.population = population;
         this.borders = borders;
         this.currencies = currencies;
-        this.language = language;
-        this.flag = flag;
-        this.alpha3Code = alpha3Code;
-        this.topLevelDomain = topLevelDomain;
+        this.languages = languages;
+        this.flags = flags;
+        this.cca3 = cca3;
+        this.tld = tld;
     }
 }
