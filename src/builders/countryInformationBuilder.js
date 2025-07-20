@@ -1,3 +1,4 @@
+import listBuilder from "../utils/listBuilders.js";
 const cardTemplate = document.getElementById("country-card-template");
 export default function createInformationDisplay(country, card, informationPage = false) {
     try {
@@ -6,7 +7,8 @@ export default function createInformationDisplay(country, card, informationPage 
         if (cardDiv)
             cardDiv.dataset.cca3 = country.cca3;
         //country flag
-        const flag = card.querySelector(".country-flag") || card.querySelector(".info-country-flag");
+        const flag = card.querySelector(".country-flag") ||
+            card.querySelector(".info-country-flag");
         flag.src = country.flags.svg || country.flags.png;
         flag.alt = country.flags.alt
             ? country.flags.alt
@@ -25,6 +27,22 @@ export default function createInformationDisplay(country, card, informationPage 
         capital.textContent = country.capital ? country.capital.join() : "N/A";
         if (!informationPage)
             return;
+        /////////////////////////////////////////////////////////
+        //only the information portion should read and use this//
+        /////////////////////////////////////////////////////////
+        //Native name
+        const nativeName = card.querySelector(".native-name");
+        const nativeFirstKey = Object.keys(country.name.nativeName)[0];
+        const nativeNameValue = country.name.nativeName[nativeFirstKey];
+        nativeName.textContent = nativeNameValue.common || "N/A";
+        //subregion
+        const subRegion = card.querySelector(".subregion");
+        subRegion.textContent = country.subregion;
+        //
+        const currencies = card.querySelector(".currencies");
+        currencies.textContent = listBuilder(country.currencies);
+        const languages = card.querySelector(".languages");
+        languages.textContent = listBuilder(country.languages);
     }
     catch (error) {
         console.error(error);
