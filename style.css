@@ -119,6 +119,7 @@ header {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);;
 }
 
 
