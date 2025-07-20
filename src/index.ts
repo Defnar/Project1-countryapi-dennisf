@@ -1,11 +1,12 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js"
-import countryDatatoMap from "./utils/countryMapCreator.js";
+import countryDatatoMap from "./utils/countryMapBuilder.js";
 import createCard from "./utils/countryCardBuilder.js";
 
 const mainError = document.getElementById("main-page-error")as HTMLSpanElement;
 const countryContainer = document.getElementById("country-container") as HTMLDivElement;
-
+const mainPage = document.getElementById("main-page") as HTMLElement;
+const infoPage = document.getElementById("info-page") as HTMLElement;
 
 
 //populate country list into a map
@@ -32,3 +33,16 @@ Promise.all([getCountryList(url), getCountryList(url2)])
 })
 .catch(error => mainError.textContent = `${error.name}:  ${error.message}`
 )
+
+
+//EVENT LISTENERS//
+countryContainer.addEventListener("click", (event) => {
+    const clickTarget = event.target as HTMLElement;
+    if (!clickTarget.closest(".country-card")) {
+        return;
+    }
+
+    const card = clickTarget.closest(".country-card");
+
+
+})

@@ -1,4 +1,4 @@
-import Country from "../model/Country";
+import Country from "../model/Country.js";
 
 const cardTemplate = document.getElementById(
   "country-card-template"
@@ -6,6 +6,11 @@ const cardTemplate = document.getElementById(
 
 export default function createCard(country: Country): DocumentFragment {
   const card = cardTemplate.content.cloneNode(true) as DocumentFragment;
+
+  //set dataset for each card to the cca3 for quick reference
+  let cardDiv = card.querySelector(".country-card") as HTMLDivElement;
+  cardDiv.dataset.cca3 = country.cca3;
+
 
   //country flag
   const flag = card.querySelector(".country-flag") as HTMLImageElement;

@@ -1,9 +1,11 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js";
-import countryDatatoMap from "./utils/countryMapCreator.js";
+import countryDatatoMap from "./utils/countryMapBuilder.js";
 import createCard from "./utils/countryCardBuilder.js";
 const mainError = document.getElementById("main-page-error");
 const countryContainer = document.getElementById("country-container");
+const mainPage = document.getElementById("main-page");
+const infoPage = document.getElementById("info-page");
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
 const url2 = "https://restcountries.com/v3.1/independent?status=false";
@@ -23,3 +25,11 @@ Promise.all([getCountryList(url), getCountryList(url2)])
     countryContainer.appendChild(fragment);
 })
     .catch(error => mainError.textContent = `${error.name}:  ${error.message}`);
+//EVENT LISTENERS//
+countryContainer.addEventListener("click", (event) => {
+    const clickTarget = event.target;
+    if (!clickTarget.closest(".country-card")) {
+        return;
+    }
+    const card = clickTarget.closest(".country-card");
+});
