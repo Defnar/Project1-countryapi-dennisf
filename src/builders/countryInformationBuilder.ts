@@ -53,14 +53,15 @@ export default function createInformationDisplay(
 
     //subregion
     const subRegion = card.querySelector(".subregion") as HTMLSpanElement;
-    subRegion.textContent = country.subregion;
+    subRegion.textContent = country.subregion || "N/A"
 
-    //
+    //currencies
     const currencies = card.querySelector(".currencies") as HTMLSpanElement;
-    currencies.textContent = listBuilder(country.currencies);
+    currencies.textContent = listBuilder(country.currencies) || "N/A";
 
+    //languages
     const languages = card.querySelector(".languages") as HTMLSpanElement;
-    languages.textContent = listBuilder(country.languages);
+    languages.textContent = listBuilder(country.languages) || "N/A"
 
 
 

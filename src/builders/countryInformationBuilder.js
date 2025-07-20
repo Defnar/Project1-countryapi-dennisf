@@ -37,12 +37,13 @@ export default function createInformationDisplay(country, card, informationPage 
         nativeName.textContent = nativeNameValue.common || "N/A";
         //subregion
         const subRegion = card.querySelector(".subregion");
-        subRegion.textContent = country.subregion;
-        //
+        subRegion.textContent = country.subregion || "N/A";
+        //currencies
         const currencies = card.querySelector(".currencies");
-        currencies.textContent = listBuilder(country.currencies);
+        currencies.textContent = listBuilder(country.currencies) || "N/A";
+        //languages
         const languages = card.querySelector(".languages");
-        languages.textContent = listBuilder(country.languages);
+        languages.textContent = listBuilder(country.languages) || "N/A";
     }
     catch (error) {
         console.error(error);
