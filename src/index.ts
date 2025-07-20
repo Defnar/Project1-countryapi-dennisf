@@ -1,7 +1,7 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js"
-import countryDatatoMap from "./utils/countryMapBuilder.js";
-import createCard from "./utils/countryCardBuilder.js";
+import countryDatatoMap from "./builders/countryMapBuilder.js";
+import createCard from "./builders/countryCardBuilder.js";
 
 const mainError = document.getElementById("main-page-error")as HTMLSpanElement;
 const countryContainer = document.getElementById("country-container") as HTMLDivElement;
@@ -12,7 +12,6 @@ const infoPage = document.getElementById("info-page") as HTMLElement;
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true"
 const url2 = "https://restcountries.com/v3.1/independent?status=false"
-
 
 //saved into a map for use on border country buttons later
 export let countryMap = new Map();

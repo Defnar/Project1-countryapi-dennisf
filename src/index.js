@@ -1,7 +1,7 @@
 import getCountryList from "./services/apiServices.js";
 import "./themeHandler/themeHandler.js";
-import countryDatatoMap from "./utils/countryMapBuilder.js";
-import createCard from "./utils/countryCardBuilder.js";
+import countryDatatoMap from "./builders/countryMapBuilder.js";
+import createCard from "./builders/countryCardBuilder.js";
 const mainError = document.getElementById("main-page-error");
 const countryContainer = document.getElementById("country-container");
 const mainPage = document.getElementById("main-page");
