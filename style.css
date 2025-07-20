@@ -155,12 +155,18 @@ header {
   box-shadow: var(--element-shadow);
 }
 
+.error-div{
+  text-align:center;
+  color: var(--text-color);
+  font-size: 50px;
+}
 
 /*info section*/
 
 #info-page{
   padding: var(--element-padding);
   margin-top: 40px;
+  font-size: 16px;
 }
 
 #back-button, .info-border-countries{
