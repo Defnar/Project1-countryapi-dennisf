@@ -26,7 +26,7 @@ interface Languages {
 }
 export default class Country {
   name: Name;
-  capital: string;
+  capital: string[];
   region: string;
   subregion: string;
   population: number;
@@ -39,7 +39,7 @@ export default class Country {
 
   constructor(
     name: Name,
-    capital: string,
+    capital: string[],
     region: string,
     subregion: string,
     population: number,
