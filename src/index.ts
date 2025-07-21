@@ -61,7 +61,10 @@ countryContainer.addEventListener("click", (event) => {
   const cca3 = card.dataset.cca3;
   infoPageContainer.appendChild(createInfoPage(cca3 as string));
 
+  clickTarget.blur();
+
   mainPage.style.display = "none";
+  mainPage.ariaHidden = "true";
   infoPage.style.display = "";
   infoPage.ariaHidden = "false";
   setTimeout(() => {
@@ -72,6 +75,7 @@ countryContainer.addEventListener("click", (event) => {
 backButton.addEventListener("click", () => {
   backButton.blur();
   mainPage.style.display = "";
+  mainPage.ariaHidden = "false";
   infoPage.style.display = "none";
   infoPage.ariaHidden = "true";
 
