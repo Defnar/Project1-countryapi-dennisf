@@ -192,7 +192,9 @@ header {
 }
 
 .info-flag-container{
-  max-width: 40%;
+  width: 50%;
+  flex-shrink: 0;
+  justify-self: flex-start;
 }
 
 .info-country-flag {
@@ -203,14 +205,26 @@ header {
 .info-container-text{
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .info-container-inner {
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 25px;
+}
+
+.border-country-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.border-countries {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .info-border-countries{

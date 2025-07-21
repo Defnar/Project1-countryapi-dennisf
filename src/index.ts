@@ -75,6 +75,7 @@ infoPageContainer.addEventListener("click", (event) => {
 
     infoPageContainer.innerHTML="";
     infoPageContainer.appendChild(createInfoPage(target.value));
+    window.scrollTo(0, 0);
 })
 
 //input event listeners
