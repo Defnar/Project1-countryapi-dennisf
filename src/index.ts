@@ -1,82 +1,87 @@
 import getCountryList from "./services/apiServices.js";
-import "./themeHandler/themeHandler.js"
+import "./themeHandler/themeHandler.js";
 import countryDatatoMap from "./page-setup/countryMap.js";
 import createCard from "./page-setup/countryCard.js";
 import Country from "./model/Country.js";
 import createInfoPage from "./page-setup/infoPage.js";
 import searchFilter from "./utils/searchFilter.js";
 
-const mainError = document.getElementById("main-page-error")as HTMLSpanElement;
-const countryContainer = document.getElementById("country-container") as HTMLDivElement;
+const mainError = document.getElementById(
+  "main-page-error"
+) as HTMLParagraphElement;
+const countryContainer = document.getElementById(
+  "country-container"
+) as HTMLDivElement;
 const mainPage = document.getElementById("main-page") as HTMLElement;
 const infoPage = document.getElementById("info-page") as HTMLElement;
-const infoPageContainer = document.getElementById("info-page-container") as HTMLDivElement;
+const infoPageContainer = document.getElementById(
+  "info-page-container"
+) as HTMLDivElement;
 const backButton = document.getElementById("back-button") as HTMLButtonElement;
 const searchBar = document.getElementById("search-bar") as HTMLInputElement;
 const filter = document.getElementById("filter") as HTMLInputElement;
 
-
 //populate country list into a map
-const url = "https://restcountries.com/v3.1/independent?status=true"
-const url2 = "https://restcountries.com/v3.1/independent?status=false"
+const url = "https://restcountries.com/v3.1/independent?status=true";
+const url2 = "https://restcountries.com/v3.1/independent?status=false";
 
 //saved into a map for use on border country buttons later
 export let countryMap: Map<string, Country> = new Map();
 
-
 //build the Map, and displays it to screen
 Promise.all([getCountryList(url), getCountryList(url2)])
-.then(([data, data2]) =>{
+  .then(([data, data2]) => {
     return countryDatatoMap(data.concat(data2));
-})
-.then(result => countryMap = result)
-.then( () => {
+  })
+  .then((result) => (countryMap = result))
+  .then(() => {
     let fragment = document.createDocumentFragment();
-    countryMap.forEach(country => {
-        fragment.appendChild(createCard(country));
-    })
+    countryMap.forEach((country) => {
+      fragment.appendChild(createCard(country));
+    });
     countryContainer.appendChild(fragment);
-})
-.catch(error => mainError.textContent = `${error.name}:  ${error.message}`
-)
-
+  })
+  .catch(
+    (error) => (mainError.textContent = `${error.name}:  ${error.message}`)
+  );
 
 //EVENT LISTENERS//
 countryContainer.addEventListener("click", (event) => {
-    const clickTarget = event.target as HTMLElement;
-    if (!clickTarget.closest(".country-card")) {
-        return;
-    }
+  const clickTarget = event.target as HTMLElement;
+  if (!clickTarget.closest(".country-card")) {
+    return;
+  }
 
-    const card = clickTarget.closest(".country-card") as HTMLDivElement;
+  const card = clickTarget.closest(".country-card") as HTMLDivElement;
 
-    infoPageContainer.innerHTML = "";
+  infoPageContainer.innerHTML = "";
 
-    const cca3 = card.dataset.cca3;
-    infoPageContainer.appendChild(createInfoPage(cca3 as string));
+  const cca3 = card.dataset.cca3;
+  infoPageContainer.appendChild(createInfoPage(cca3 as string));
 
-    mainPage.style.display = "none"
-    infoPage.style.display = "";
-
-})
+  mainPage.style.display = "none";
+  infoPage.style.display = "";
+  infoPage.ariaHidden = "false";
+});
 
 backButton.addEventListener("click", () => {
-    mainPage.style.display = "";
-    infoPage.style.display="none";
+  mainPage.style.display = "";
+  infoPage.style.display = "none";
+  infoPage.ariaHidden = "true";
 
-    infoPageContainer.innerHTML = "";
-})
+  infoPageContainer.innerHTML = "";
+});
 
 infoPageContainer.addEventListener("click", (event) => {
-    const target = event.target as HTMLButtonElement;
-    if (!target.classList.contains("info-border-countries")) {
-        return;
-    }
+  const target = event.target as HTMLButtonElement;
+  if (!target.classList.contains("info-border-countries")) {
+    return;
+  }
 
-    infoPageContainer.innerHTML="";
-    infoPageContainer.appendChild(createInfoPage(target.value));
-    window.scrollTo(0, 0);
-})
+  infoPageContainer.innerHTML = "";
+  infoPageContainer.appendChild(createInfoPage(target.value));
+  window.scrollTo(0, 0);
+});
 
 //input event listeners
 searchBar.addEventListener("input", searchFilter);

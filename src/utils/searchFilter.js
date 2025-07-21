@@ -1,8 +1,10 @@
 const filter = document.getElementById("filter");
 const search = document.getElementById("search-bar");
 const card = document.getElementsByClassName("country-card");
-//compare each card to filter and search inputs
+const noMatch = document.getElementById("no-search-match");
+//compare each card to filter and search inputs, displays no matches found if no countries
 export default function searchFilter() {
+    let match = 0;
     for (const countryCard of card) {
         const searchValue = search.value.toLowerCase().trim();
         const filterValue = filter.value;
@@ -13,9 +15,19 @@ export default function searchFilter() {
         const region = regionSpan.textContent;
         const searchMatch = name.toLowerCase().trim().includes(searchValue);
         const filterMatch = filter.value == "All" || filter.value == region;
-        if (searchMatch && filterMatch)
+        if (searchMatch && filterMatch) {
             countryCard.style.display = "";
+            match++;
+        }
         else
             countryCard.style.display = "none";
+    }
+    if (match == 0) {
+        noMatch.ariaHidden = "false";
+        noMatch.style.display = "";
+    }
+    else {
+        noMatch.ariaHidden = "true";
+        noMatch.style.display = "none";
     }
 }

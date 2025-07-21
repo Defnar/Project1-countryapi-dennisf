@@ -10,11 +10,11 @@
   --font-medium: 600;
   --font-heavy: 800;
   --element-padding: 21px 5%;
-  --element-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);;
+  --element-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 html[data-theme="dark"] {
@@ -56,7 +56,6 @@ header {
   font-size: 16px;
 }
 
-
 /*main page*/
 #search-filter {
   display: flex;
@@ -79,6 +78,7 @@ header {
   max-width: 500px;
   min-width: 300px;
   padding-left: 40px;
+  padding-right: 20px;
 }
 
 #search-icon {
@@ -88,31 +88,36 @@ header {
 }
 
 #filter {
-    width: 200px;
-    padding: 0px 20px;
-    line-height: 1.5;
+  width: 200px;
+  padding: 0px 20px;
+  line-height: 1.5;
 }
 
-#country-container{
-    width: 100%;
-    padding: var(--element-padding);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+#no-search-match {
+  font-size: 32px;
+  text-align: center;
 }
 
+#country-container {
+  width: 100%;
+  padding: var(--element-padding);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
 
 .country-card {
-    width: 275px;
-    border-radius: var(--border-radius);
-    background-color: var(--element-color);
-    padding-bottom: 50px;
+  width: 275px;
+  height: 380px;
+  border-radius: var(--border-radius);
+  background-color: var(--element-color);
+  padding-bottom: 50px;
 }
 
 .country-card-info-container {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 .country-flag {
   object-fit: cover;
@@ -120,58 +125,63 @@ header {
   border-top-right-radius: var(--border-radius);
   width: 100%;
   height: 160px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.country-name{
-    font-weight: var(--font-heavy);
+.country-name {
+  font-weight: var(--font-heavy);
 }
 
-
-.country-card-info-container-inner{
-    line-height: .8;
+.country-card-info-container-inner {
+  line-height: 0.8;
 }
-.category{
-    font-weight: var(--font-medium);
+.category {
+  font-weight: var(--font-medium);
 }
 
 .country-info {
-    font-weight: var(--font-light);
+  font-weight: var(--font-light);
 }
 
-#search-bar, #filter{
+#search-bar,
+#filter {
   height: 50px;
 }
 
 /*shared elements*/
-#search-bar, #filter, #back-button, .info-border-countries {
+#search-bar,
+#filter,
+#back-button,
+.info-border-countries {
   border: none;
   border-radius: var(--border-radius);
   color: var(--text-color);
-  background-color: var(--element-color)
+  background-color: var(--element-color);
 }
 
-#search-bar, #filter, header, .country-card {
+#search-bar,
+#filter,
+header,
+.country-card {
   box-shadow: var(--element-shadow);
 }
 
-.error-div{
-  text-align:center;
+.error-div {
+  text-align: center;
   color: var(--text-color);
   font-size: 50px;
 }
 
 /*info section*/
 
-#info-page{
+#info-page {
   padding: var(--element-padding);
   margin-top: 40px;
   font-size: 16px;
 }
 
-#back-button, .info-border-countries{
+#back-button,
+.info-border-countries {
   border: none;
   height: 40px;
   box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
@@ -192,7 +202,7 @@ header {
   gap: 50px;
 }
 
-.info-flag-container{
+.info-flag-container {
   width: 50%;
   flex-shrink: 0;
   justify-self: flex-start;
@@ -203,7 +213,7 @@ header {
   width: 100%;
 }
 
-.info-container-text{
+.info-container-text {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -228,17 +238,17 @@ header {
   flex-wrap: wrap;
 }
 
-.info-border-countries{
+.info-border-countries {
   height: 30px;
   margin: 5px;
   width: 125px;
 }
 
-@media(max-width: 1000px) {
-  .full-info-container{
+@media (max-width: 1000px) {
+  .full-info-container {
     flex-direction: column;
   }
-  .info-flag-container{
+  .info-flag-container {
     max-width: 80%;
   }
 }
@@ -249,13 +259,13 @@ header {
     gap: 20px;
     align-items: flex-start;
   }
-  #search-bar-div{
-width: 100%;
-max-width: 100%;
+  #search-bar-div {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
-@media(max-width: 450px) {
+@media (max-width: 450px) {
   .info-container-inner {
     flex-direction: column;
     align-items: flex-start;

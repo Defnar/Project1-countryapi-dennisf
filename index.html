@@ -57,19 +57,26 @@
         </select>
       </div>
       <div class="error-div">
-        <span id="main-page-error"></span>
+        <p id="main-page-error"></p>
       </div>
+      <p id="no-search-match" style="display: none" aria-hidden="true">
+        No countries match your search
+      </p>
       <div id="country-container">
         <!--country container, cards should go here-->
       </div>
     </section>
     <!--section for information, hidden on default.  Clone and fill out template to append here-->
-    <section id="info-page" aria-live="polite" style="display: none">
+    <section
+      id="info-page"
+      aria-live="polite"
+      style="display: none"
+      aria-hidden="true"
+    >
       <button type="button" id="back-button" aria-label="back button">
         <ion-icon name="arrow-back-outline"></ion-icon>Back
       </button>
-      <div id="info-page-container">
-      </div>
+      <div id="info-page-container"></div>
     </section>
     <div id="template">
       <!--template for country cards-->
@@ -99,7 +106,7 @@
       <template id="info-template">
         <div class="full-info-container">
           <div class="info-flag-container">
-            <img class="info-country-flag"/>
+            <img class="info-country-flag" />
           </div>
           <div class="info-container-text">
             <div class="info-container-inner">

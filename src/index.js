@@ -22,15 +22,15 @@ Promise.all([getCountryList(url), getCountryList(url2)])
     .then(([data, data2]) => {
     return countryDatatoMap(data.concat(data2));
 })
-    .then(result => countryMap = result)
+    .then((result) => (countryMap = result))
     .then(() => {
     let fragment = document.createDocumentFragment();
-    countryMap.forEach(country => {
+    countryMap.forEach((country) => {
         fragment.appendChild(createCard(country));
     });
     countryContainer.appendChild(fragment);
 })
-    .catch(error => mainError.textContent = `${error.name}:  ${error.message}`);
+    .catch((error) => (mainError.textContent = `${error.name}:  ${error.message}`));
 //EVENT LISTENERS//
 countryContainer.addEventListener("click", (event) => {
     const clickTarget = event.target;
@@ -43,10 +43,12 @@ countryContainer.addEventListener("click", (event) => {
     infoPageContainer.appendChild(createInfoPage(cca3));
     mainPage.style.display = "none";
     infoPage.style.display = "";
+    infoPage.ariaHidden = "false";
 });
 backButton.addEventListener("click", () => {
     mainPage.style.display = "";
     infoPage.style.display = "none";
+    infoPage.ariaHidden = "true";
     infoPageContainer.innerHTML = "";
 });
 infoPageContainer.addEventListener("click", (event) => {
