@@ -4,6 +4,7 @@ import countryDatatoMap from "./page-setup/countryMap.js";
 import createCard from "./page-setup/countryCard.js";
 import createInfoPage from "./page-setup/infoPage.js";
 import searchFilter from "./utils/searchFilter.js";
+import { countryCardClick } from "./eventListenerFunctions.js";
 const mainError = document.getElementById("main-page-error");
 const countryContainer = document.getElementById("country-container");
 const mainPage = document.getElementById("main-page");
@@ -34,23 +35,11 @@ Promise.all([getCountryList(url), getCountryList(url2)])
 })
     .catch((error) => (mainError.textContent = `${error.name}:  ${error.message}`));
 //EVENT LISTENERS//
-countryContainer.addEventListener("click", (event) => {
-    const clickTarget = event.target;
-    if (!clickTarget.closest(".country-card")) {
-        return;
+countryContainer.addEventListener("click", countryCardClick);
+countryContainer.addEventListener("keydown", (event) => {
+    if (event.key === 'Enter') {
+        countryCardClick(event);
     }
-    const card = clickTarget.closest(".country-card");
-    infoPageContainer.innerHTML = "";
-    const cca3 = card.dataset.cca3;
-    infoPageContainer.appendChild(createInfoPage(cca3));
-    clickTarget.blur();
-    mainPage.style.display = "none";
-    mainPage.ariaHidden = "true";
-    infoPage.style.display = "";
-    infoPage.ariaHidden = "false";
-    setTimeout(() => {
-        window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
-    }, 50);
 });
 backButton.addEventListener("click", () => {
     backButton.blur();

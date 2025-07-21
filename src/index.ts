@@ -5,6 +5,7 @@ import createCard from "./page-setup/countryCard.js";
 import Country from "./model/Country.js";
 import createInfoPage from "./page-setup/infoPage.js";
 import searchFilter from "./utils/searchFilter.js";
+import { countryCardClick } from "./eventListenerFunctions.js";
 
 const mainError = document.getElementById(
   "main-page-error"
@@ -48,29 +49,12 @@ Promise.all([getCountryList(url), getCountryList(url2)])
   );
 
 //EVENT LISTENERS//
-countryContainer.addEventListener("click", (event) => {
-  const clickTarget = event.target as HTMLElement;
-  if (!clickTarget.closest(".country-card")) {
-    return;
-  }
-
-  const card = clickTarget.closest(".country-card") as HTMLDivElement;
-
-  infoPageContainer.innerHTML = "";
-
-  const cca3 = card.dataset.cca3;
-  infoPageContainer.appendChild(createInfoPage(cca3 as string));
-
-  clickTarget.blur();
-
-  mainPage.style.display = "none";
-  mainPage.ariaHidden = "true";
-  infoPage.style.display = "";
-  infoPage.ariaHidden = "false";
-  setTimeout(() => {
-    window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
-  }, 50);
-});
+countryContainer.addEventListener("click", countryCardClick);
+countryContainer.addEventListener("keydown", (event) => {
+    if (event.key === 'Enter') {
+        countryCardClick(event);
+    }
+})
 
 backButton.addEventListener("click", () => {
   backButton.blur();
