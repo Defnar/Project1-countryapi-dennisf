@@ -2,6 +2,8 @@ import { countryMap } from "../index.js";
 export default function buttonBuilder(buttonDiv, country) {
     var _a;
     if (!country.borders || country.borders.length == 0) {
+        const noBorders = document.createElement("p");
+        noBorders.textContent = "this country has no borders";
         return;
     }
     const fragment = document.createDocumentFragment();

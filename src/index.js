@@ -46,3 +46,11 @@ backButton.addEventListener("click", () => {
     infoPage.style.display = "none";
     infoPageContainer.innerHTML = "";
 });
+infoPageContainer.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!target.classList.contains("info-border-countries")) {
+        return;
+    }
+    infoPageContainer.innerHTML = "";
+    infoPageContainer.appendChild(createInfoPage(target.value));
+});

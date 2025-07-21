@@ -61,3 +61,13 @@ backButton.addEventListener("click", () => {
 
     infoPageContainer.innerHTML = "";
 })
+
+infoPageContainer.addEventListener("click", (event) => {
+    const target = event.target as HTMLButtonElement;
+    if (!target.classList.contains("info-border-countries")) {
+        return;
+    }
+
+    infoPageContainer.innerHTML="";
+    infoPageContainer.appendChild(createInfoPage(target.value));
+})
