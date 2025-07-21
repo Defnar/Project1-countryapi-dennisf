@@ -68,6 +68,7 @@ header {
 
 #search-bar-div {
   position: relative;
+  display: flex;
   flex: 1;
   min-width: 300px;
   max-width: 500px;

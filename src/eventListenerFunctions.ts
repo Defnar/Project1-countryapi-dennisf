@@ -30,3 +30,5 @@ export function countryCardClick(event: Event): void {
         window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
       }, 50);
 }
+
+
