@@ -64,6 +64,8 @@ countryContainer.addEventListener("click", (event) => {
   mainPage.style.display = "none";
   infoPage.style.display = "";
   infoPage.ariaHidden = "false";
+  
+  window.scrollTo({top: 150, left: 0, behavior: "smooth"});
 });
 
 backButton.addEventListener("click", () => {
@@ -82,7 +84,7 @@ infoPageContainer.addEventListener("click", (event) => {
 
   infoPageContainer.innerHTML = "";
   infoPageContainer.appendChild(createInfoPage(target.value));
-  window.scrollTo(0, 0);
+  window.scrollTo({top: 150, left: 0, behavior: "smooth"})
 });
 
 //input event listeners
