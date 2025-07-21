@@ -26,3 +26,4 @@
  
 ## Potential Improvements
 - I need to learn about infinite scrolling features.  the only reason I didn't dive deep into it and do so here is the amount of refactoring I would need to do to create subsets of data to display on the screen, and how complicated that could become using search and filter features with the way I've already got the app designed.  The biggest improvement this app needs is performance/loading speed.
+- Instead of immediate change to information page and back, sliding in and out before hiding.  
