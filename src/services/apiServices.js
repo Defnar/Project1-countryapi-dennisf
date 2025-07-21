@@ -11,7 +11,9 @@ import { ApiError, FetchError } from "../errorHandlers/errorHandler.js";
 export default function getCountryList(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield fetch(url);
+            //time in ms for fetch timeout
+            const fetchTimeout = { signal: AbortSignal.timeout(5000) };
+            const data = yield fetch(url, fetchTimeout);
             if (!data.ok) {
                 const error = yield data.json();
                 throw new ApiError(`${error.message}, refresh to try again.  If problem persists, please contact web administrator`);

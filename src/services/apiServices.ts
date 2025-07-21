@@ -3,7 +3,9 @@ import Country from "../model/Country.js";
 
 export default async function getCountryList(url: string): Promise<Country[]> {
   try {
-    const data = await fetch(url);
+    //time in ms for fetch timeout
+    const fetchTimeout = {signal: AbortSignal.timeout(5000)}
+    const data = await fetch(url, fetchTimeout);
     if (!data.ok) {
       const error = await data.json();
       throw new ApiError(
