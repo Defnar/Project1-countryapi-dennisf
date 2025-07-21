@@ -3,12 +3,15 @@ import "./themeHandler/themeHandler.js";
 import countryDatatoMap from "./page-setup/countryMap.js";
 import createCard from "./page-setup/countryCard.js";
 import createInfoPage from "./page-setup/infoPage.js";
+import searchFilter from "./utils/searchFilter.js";
 const mainError = document.getElementById("main-page-error");
 const countryContainer = document.getElementById("country-container");
 const mainPage = document.getElementById("main-page");
 const infoPage = document.getElementById("info-page");
 const infoPageContainer = document.getElementById("info-page-container");
 const backButton = document.getElementById("back-button");
+const searchBar = document.getElementById("search-bar");
+const filter = document.getElementById("filter");
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
 const url2 = "https://restcountries.com/v3.1/independent?status=false";
@@ -54,3 +57,6 @@ infoPageContainer.addEventListener("click", (event) => {
     infoPageContainer.innerHTML = "";
     infoPageContainer.appendChild(createInfoPage(target.value));
 });
+//input event listeners
+searchBar.addEventListener("keydown", searchFilter);
+filter.addEventListener("change", searchFilter);

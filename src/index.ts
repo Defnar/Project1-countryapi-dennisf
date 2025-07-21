@@ -4,6 +4,7 @@ import countryDatatoMap from "./page-setup/countryMap.js";
 import createCard from "./page-setup/countryCard.js";
 import Country from "./model/Country.js";
 import createInfoPage from "./page-setup/infoPage.js";
+import searchFilter from "./utils/searchFilter.js";
 
 const mainError = document.getElementById("main-page-error")as HTMLSpanElement;
 const countryContainer = document.getElementById("country-container") as HTMLDivElement;
@@ -11,6 +12,10 @@ const mainPage = document.getElementById("main-page") as HTMLElement;
 const infoPage = document.getElementById("info-page") as HTMLElement;
 const infoPageContainer = document.getElementById("info-page-container") as HTMLDivElement;
 const backButton = document.getElementById("back-button") as HTMLButtonElement;
+const searchBar = document.getElementById("search-bar") as HTMLInputElement;
+const filter = document.getElementById("filter") as HTMLInputElement;
+
+
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true"
 const url2 = "https://restcountries.com/v3.1/independent?status=false"
@@ -71,3 +76,7 @@ infoPageContainer.addEventListener("click", (event) => {
     infoPageContainer.innerHTML="";
     infoPageContainer.appendChild(createInfoPage(target.value));
 })
+
+//input event listeners
+searchBar.addEventListener("keydown", searchFilter);
+filter.addEventListener("change", searchFilter);
