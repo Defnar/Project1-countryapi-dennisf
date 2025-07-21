@@ -256,6 +256,10 @@ header,
   .info-flag-container {
     width: 100%;
   }
+
+  .info-container-text {
+    width: 100%;
+  }
 }
 
 @media (max-width: 575px) {
@@ -279,5 +283,9 @@ header,
   .info-flag-container {
     max-width: 100%;
     width: 100%;
+  }
+
+  .border-country-container {
+    flex-direction: column;
   }
 }
