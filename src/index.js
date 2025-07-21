@@ -8,6 +8,7 @@ const countryContainer = document.getElementById("country-container");
 const mainPage = document.getElementById("main-page");
 const infoPage = document.getElementById("info-page");
 const infoPageContainer = document.getElementById("info-page-container");
+const backButton = document.getElementById("back-button");
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
 const url2 = "https://restcountries.com/v3.1/independent?status=false";
@@ -39,4 +40,9 @@ countryContainer.addEventListener("click", (event) => {
     infoPageContainer.appendChild(createInfoPage(cca3));
     mainPage.style.display = "none";
     infoPage.style.display = "";
+});
+backButton.addEventListener("click", () => {
+    mainPage.style.display = "";
+    infoPage.style.display = "none";
+    infoPageContainer.innerHTML = "";
 });

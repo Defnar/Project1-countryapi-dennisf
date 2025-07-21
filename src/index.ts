@@ -10,8 +10,7 @@ const countryContainer = document.getElementById("country-container") as HTMLDiv
 const mainPage = document.getElementById("main-page") as HTMLElement;
 const infoPage = document.getElementById("info-page") as HTMLElement;
 const infoPageContainer = document.getElementById("info-page-container") as HTMLDivElement;
-
-
+const backButton = document.getElementById("back-button") as HTMLButtonElement;
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true"
 const url2 = "https://restcountries.com/v3.1/independent?status=false"
@@ -43,7 +42,7 @@ countryContainer.addEventListener("click", (event) => {
     if (!clickTarget.closest(".country-card")) {
         return;
     }
-    
+
     const card = clickTarget.closest(".country-card") as HTMLDivElement;
 
     infoPageContainer.innerHTML = "";
@@ -54,4 +53,11 @@ countryContainer.addEventListener("click", (event) => {
     mainPage.style.display = "none"
     infoPage.style.display = "";
 
+})
+
+backButton.addEventListener("click", () => {
+    mainPage.style.display = "";
+    infoPage.style.display="none";
+
+    infoPageContainer.innerHTML = "";
 })
