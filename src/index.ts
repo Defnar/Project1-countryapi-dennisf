@@ -70,6 +70,7 @@ countryContainer.addEventListener("click", (event) => {
 });
 
 backButton.addEventListener("click", () => {
+  backButton.blur();
   mainPage.style.display = "";
   infoPage.style.display = "none";
   infoPage.ariaHidden = "true";

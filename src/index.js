@@ -51,6 +51,7 @@ countryContainer.addEventListener("click", (event) => {
     }, 50);
 });
 backButton.addEventListener("click", () => {
+    backButton.blur();
     mainPage.style.display = "";
     infoPage.style.display = "none";
     infoPage.ariaHidden = "true";
