@@ -13,6 +13,7 @@
 - After basic html, I ended up doing multiple back and forths between html and css to get the basic styles down for each listed page.  I decided to up my CSS writing and use vars for different things, such as thematic coloring, shared elements such as box-shadow, font weights for the project, etc.
 - finally, we add all of the logic.  I started with the API calls and country class, and built from there.  I set up the map I mentioned before, and created the promise chain to grab api information, add it to the map, and then add the information to the page by using a card template to store the information, appending each card to a fragment, and then returning and appending the entire fragment to the page.  I moved onto filling out the information page when you click a country, swap displays so information is no longer hidden and the main section is hidden, etc.  I moved onto the buttons, back, border buttons, etc to get them working as well.  Finally, I added the search and filter function, performed all final tests.
 - the final part of the development process was testing everything, doing final refactors for performance and readability, and tightening up styling, making everything more polished.
+- as a final step, I plugged the website into https://www.accessibilitychecker.org/ and fixed the remaining accessibility issues, just to be thorough.
 
 ## Challenges faced and solutions
 - the biggest challenges I faced were:
