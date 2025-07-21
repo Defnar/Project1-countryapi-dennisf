@@ -59,5 +59,5 @@ infoPageContainer.addEventListener("click", (event) => {
     window.scrollTo(0, 0);
 });
 //input event listeners
-searchBar.addEventListener("keydown", searchFilter);
+searchBar.addEventListener("input", searchFilter);
 filter.addEventListener("change", searchFilter);
