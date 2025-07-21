@@ -20,6 +20,7 @@ const infoPageContainer = document.getElementById(
 const backButton = document.getElementById("back-button") as HTMLButtonElement;
 const searchBar = document.getElementById("search-bar") as HTMLInputElement;
 const filter = document.getElementById("filter") as HTMLInputElement;
+const loader = document.querySelector(".loader") as HTMLDivElement;
 
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
@@ -40,6 +41,7 @@ Promise.all([getCountryList(url), getCountryList(url2)])
       fragment.appendChild(createCard(country));
     });
     countryContainer.appendChild(fragment);
+    loader.style.display= "none"
   })
   .catch(
     (error) => (mainError.textContent = `${error.name}:  ${error.message}`)

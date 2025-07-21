@@ -12,6 +12,7 @@ const infoPageContainer = document.getElementById("info-page-container");
 const backButton = document.getElementById("back-button");
 const searchBar = document.getElementById("search-bar");
 const filter = document.getElementById("filter");
+const loader = document.querySelector(".loader");
 //populate country list into a map
 const url = "https://restcountries.com/v3.1/independent?status=true";
 const url2 = "https://restcountries.com/v3.1/independent?status=false";
@@ -29,6 +30,7 @@ Promise.all([getCountryList(url), getCountryList(url2)])
         fragment.appendChild(createCard(country));
     });
     countryContainer.appendChild(fragment);
+    loader.style.display = "none";
 })
     .catch((error) => (mainError.textContent = `${error.name}:  ${error.message}`));
 //EVENT LISTENERS//
