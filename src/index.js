@@ -33,7 +33,6 @@ countryContainer.addEventListener("click", (event) => {
     if (!clickTarget.closest(".country-card")) {
         return;
     }
-    console.log("creating new info panel");
     const card = clickTarget.closest(".country-card");
     infoPageContainer.innerHTML = "";
     const cca3 = card.dataset.cca3;

@@ -14,10 +14,15 @@ export default function buttonBuilder(
 
   for (let border of country.borders) {
     const button = document.createElement("button") as HTMLButtonElement;
+    button.type = "button"
     button.value = border;
-    button.textContent = countryMap.get(border)?.name.common || "";
+    button.className = "info-border-countries"
+    const countryName = countryMap.get(border)?.name.common
+    button.ariaLabel = `Border country: ${countryName}`
+    button.textContent = countryName|| "";
     fragment.appendChild(button);
   }
 
+  buttonDiv.appendChild(fragment);
 
 }
