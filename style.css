@@ -244,6 +244,11 @@ header,
   width: 125px;
 }
 
+.info-no-border {
+  margin-left: 20px;
+  font-weight: var(--font-light);
+}
+
 @media (max-width: 1000px) {
   .full-info-container {
     flex-direction: column;
