@@ -131,7 +131,7 @@ header {
 
 
 .country-card-info-container-inner{
-    line-height: .5;
+    line-height: .8;
 }
 .category{
     font-weight: var(--font-medium);
