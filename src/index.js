@@ -46,7 +46,9 @@ countryContainer.addEventListener("click", (event) => {
     mainPage.style.display = "none";
     infoPage.style.display = "";
     infoPage.ariaHidden = "false";
-    window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+    setTimeout(() => {
+        window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+    }, 50);
 });
 backButton.addEventListener("click", () => {
     mainPage.style.display = "";
@@ -61,7 +63,9 @@ infoPageContainer.addEventListener("click", (event) => {
     }
     infoPageContainer.innerHTML = "";
     infoPageContainer.appendChild(createInfoPage(target.value));
-    window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+    setTimeout(() => {
+        window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+    }, 50);
 });
 //input event listeners
 searchBar.addEventListener("input", searchFilter);

@@ -41,7 +41,7 @@ Promise.all([getCountryList(url), getCountryList(url2)])
       fragment.appendChild(createCard(country));
     });
     countryContainer.appendChild(fragment);
-    loader.style.display= "none"
+    loader.style.display = "none";
   })
   .catch(
     (error) => (mainError.textContent = `${error.name}:  ${error.message}`)
@@ -64,8 +64,9 @@ countryContainer.addEventListener("click", (event) => {
   mainPage.style.display = "none";
   infoPage.style.display = "";
   infoPage.ariaHidden = "false";
-  
-  window.scrollTo({top: 150, left: 0, behavior: "smooth"});
+  setTimeout(() => {
+    window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+  }, 50);
 });
 
 backButton.addEventListener("click", () => {
@@ -84,7 +85,9 @@ infoPageContainer.addEventListener("click", (event) => {
 
   infoPageContainer.innerHTML = "";
   infoPageContainer.appendChild(createInfoPage(target.value));
-  window.scrollTo({top: 150, left: 0, behavior: "smooth"})
+  setTimeout(() => {
+    window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
+  }, 50);
 });
 
 //input event listeners
