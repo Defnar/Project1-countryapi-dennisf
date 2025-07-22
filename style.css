@@ -143,6 +143,12 @@ header {
   border-radius: var(--border-radius);
   background-color: var(--element-color);
   padding-bottom: 50px;
+  transition: 0.5s ease-in-out;
+}
+
+.country-card:hover,
+.country-card:focus {
+  transform: scale(1.1);
 }
 
 .country-card-info-container {
@@ -203,6 +209,14 @@ header,
 .country-flag,
 .info-country-flag {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.country-card:hover,
+#dark-mode-toggle:hover,
+#back-button:hover,
+#filter:hover,
+.info-border-countries:hover {
+  cursor: pointer;
 }
 
 /*info section*/
